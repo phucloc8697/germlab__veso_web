@@ -6,6 +6,8 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --sidebar-width: 200px;
+  --header-height: 70px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,10 +20,42 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: #f2f2f2;
+  /* background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
+    rgb(var(--background-start-rgb)); */
+}
+
+main {
+  padding-top: var(--header-height);
+}
+
+header {
+  width: 100%;
+  height: var(--header-height);
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+header.atTop {
+  transform: translateY(0) !important;
+}
+header.hide {
+  transform: translateY(-100%);
+}
+
+.sidebar-container {
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 2;
+  @media screen and (min-width: 769px) {
+    width: fit-content;
+  }
+}
+.sidebar {
+  width: 70%;
+  @media screen and (min-width: 769px) {
+    width: var(--sidebar-width);
+  }
 }
