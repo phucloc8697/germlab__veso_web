@@ -1,3 +1,5 @@
+'use client'
+
 import { useLotteryResultStore } from '@/hooks/useLotteryResultStore'
 import { LotteryCompany, LotteryResult } from '@/types'
 import { formatDate } from '@/utils/date'
@@ -52,15 +54,15 @@ const LatestResult = () => {
   const TableCell = ({ children, width }: { children: ReactNode; width?: number | string }) => (
     <td
       style={{ ...(width && { maxWidth: width, minWidth: width }) }}
-      className="bg-white border px-4 py-2 text-center"
+      className="bg-white border px-2 md:px-4 py-2 text-center"
     >
       {children}
     </td>
   )
 
   return (
-    <div className="flex flex-col p-8 gap-10">
-      <h2 className="text-lg text-accent text-center font-semibold">Kết quả xổ số hôm nay</h2>
+    <div className="flex flex-col gap-10">
+      <h2 className="text-lg text-accent text-center font-semibold">Kết quả xổ số mới nhất</h2>
       {groups.map((group) => {
         const lotteryGroup = getGroupFromId(group.group)
         const resultDate = group.results.length > 0 ? group.results[0].drawn_at : null
@@ -82,7 +84,9 @@ const LatestResult = () => {
                         ] as LotteryCompany
                         return (
                           <th key={e.company_id} className="border-b bg-red-50 p-2">
-                            <span className="font-semibold">{company ? company.name : null}</span>
+                            <span className="text-sm font-semibold">
+                              {company ? company.name : null}
+                            </span>
                           </th>
                         )
                       })}

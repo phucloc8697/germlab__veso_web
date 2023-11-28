@@ -9,7 +9,14 @@ interface CardProps {
 const Card = (props: CardProps) => {
   const { className, children } = props
   return (
-    <div className={classNames('d-flex flex-col', 'rounded bg-white shadow-sm', className)}>
+    <div
+      className={classNames(
+        'd-flex flex-col',
+        'p-4 md:p-8',
+        'rounded bg-white shadow-sm',
+        className,
+      )}
+    >
       {children}
     </div>
   )

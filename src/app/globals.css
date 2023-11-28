@@ -8,6 +8,7 @@
   --background-end-rgb: 255, 255, 255;
   --sidebar-width: 200px;
   --header-height: 70px;
+  --system-status-height: 40px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -25,8 +26,18 @@ body {
     rgb(var(--background-start-rgb)); */
 }
 
-main {
-  padding-top: var(--header-height);
+input {
+  padding: theme(spacing.2);
+  border-width: theme(borderWidth.DEFAULT);
+  border-color: theme(borderColor.DEFAULT);
+  border-radius: theme(borderRadius.DEFAULT);
+}
+
+button {
+  color: theme(textColor.white);
+  background-color: theme(colors.primary);
+  padding: theme(spacing.2);
+  border-radius: theme(borderRadius.DEFAULT);
 }
 
 header {
@@ -41,6 +52,11 @@ header.atTop {
 }
 header.hide {
   transform: translateY(-100%);
+}
+
+#system-status-bar {
+  height: var(--system-status-height);
+  margin-top: var(--header-height);
 }
 
 .sidebar-container {

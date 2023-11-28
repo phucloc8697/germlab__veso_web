@@ -2,10 +2,13 @@ import type { Metadata } from 'next'
 import { fontOpenSans } from '@/fonts'
 import classNames from 'classnames'
 import { ToastContainer } from 'react-toastify'
-import './globals.css'
 import 'react-toastify/dist/ReactToastify.css'
 import Header from '@/components/Header'
 import Sidebar from '@/components/Sidebar'
+import SystemStatusBar from '@/components/SystemStatusBar'
+
+import './globals.css'
+import './firework.css'
 
 export const metadata: Metadata = {
   title: 'Veso',
@@ -23,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className={classNames(fontOpenSans.variable, 'font-sans text-dark relative')}>
         <Header />
+        <SystemStatusBar />
         <Sidebar />
         {children}
       </body>

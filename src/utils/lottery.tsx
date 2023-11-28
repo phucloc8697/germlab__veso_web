@@ -57,3 +57,18 @@ export function getCompanyFromId(id: string): LotteryGroup {
   const company = (LotteryCompanies as { [key: string]: LotteryCompany })[id] as LotteryCompany
   return company
 }
+
+export function getPrizeName(id: number): string {
+  const Names: { [key: number]: string } = {
+    0: 'Giải đặc biệt',
+    1: 'Giải nhất',
+    2: 'Giải nhì',
+    3: 'Giải ba',
+    4: 'Giải bốn',
+    5: 'Giải năm',
+    6: 'Giải sáu',
+    7: 'Giải bảy',
+    8: 'Giải tám',
+  }
+  return Names[id] || ''
+}
