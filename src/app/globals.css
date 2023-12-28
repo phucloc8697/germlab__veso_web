@@ -75,3 +75,12 @@ header.hide {
     width: var(--sidebar-width);
   }
 }
+
+.react-select__control {
+  border-color: #e5e7eb !important;
+}
+
+.react-select__control--is-focused {
+  border: 2px solid rgb(0, 95, 204) !important;
+  box-shadow: none !important;
+}

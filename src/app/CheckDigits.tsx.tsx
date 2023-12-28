@@ -2,11 +2,18 @@
 
 import classNames from 'classnames'
 import { useEffect, useState } from 'react'
+import DatePicker from 'react-datepicker'
+import Select from 'react-select'
+import { toast } from 'react-toastify'
+
+import vi from 'date-fns/locale/vi'
+import 'react-datepicker/dist/react-datepicker.css'
 
 import Card from '@/components/Card'
 import Spinner from '@/components/Spinner'
 import { useLotteryResultStore } from '@/hooks/useLotteryResultStore'
-import { getCompanyFromId, getPrizeName } from '@/utils/lottery'
+import { LotteryCompanies, getCompanyFromId, getPrizeName } from '@/utils/lottery'
+import { useShallow } from 'zustand/react/shallow'
 
 type WinResult = {
   prize: number
@@ -14,9 +21,15 @@ type WinResult = {
   expect: string
 }
 
-const QuickCheckDigits = () => {
-  const latestResuts = useLotteryResultStore((state) => state.results)
+const CheckDigits = () => {
+  const { getHistoryResults } = useLotteryResultStore(
+    useShallow((state) => ({
+      getHistoryResults: state.getHistoryResults,
+    })),
+  )
   const [digits, setDigits] = useState('')
+  const [drawnAt, setDrawnAt] = useState<Date | null>(null)
+  const [companyId, setCompanyId] = useState<string>()
   const [firstEnter, setFirstEnter] = useState(true)
   const [winResults, setWinResults] = useState<WinResult[]>([])
   const [checking, setChecking] = useState(false)
@@ -29,34 +42,37 @@ const QuickCheckDigits = () => {
     }
   }, [winResults])
 
-  const onSubmit = () => {
-    setChecking(true)
-    let ans: WinResult[] = []
-    for (let result of latestResuts) {
-      for (let i = 0; i < 9; i++) {
-        const expects = (result as { [key: string]: any })[`prize${i}`] as string[]
-        for (let e of expects) {
-          if (digits === e || (e.length < digits.length && digits.slice(-e.length) === e)) {
-            ans.push({
-              prize: i,
-              expect: e,
-              company: result.company_id,
-            })
+  const onSubmit = async () => {
+    if (!companyId || !drawnAt) return toast.error('Vui lòng chọn công ty và ngày xổ số')
+    try {
+      setChecking(true)
+      const results = await getHistoryResults({ companyId, drawnAt: drawnAt })
+      let ans: WinResult[] = []
+      for (let result of results) {
+        for (let i = 0; i < 9; i++) {
+          const expects = (result as { [key: string]: any })[`prize${i}`] as string[]
+          for (let e of expects) {
+            if (digits === e || (e.length < digits.length && digits.slice(-e.length) === e)) {
+              ans.push({
+                prize: i,
+                expect: e,
+                company: result.company_id,
+              })
+            }
           }
         }
       }
-    }
-    setWinResults(ans)
-    setTimeout(() => {
+      setWinResults(ans)
+    } finally {
       setChecking(false)
       setFirstEnter(false)
-    }, 1000)
+    }
   }
 
   return (
     <div className="flex flex-col gap-2">
       <Card>
-        <h2 className="text-accent text-lg text-center font-semibold mb-10">Dò nhanh</h2>
+        <h2 className="text-accent text-lg text-center font-semibold mb-10">Dò số đã xổ</h2>
         <div className="flex flex-col gap-10">
           <div className="flex flex-col gap-2">
             <input
@@ -71,6 +87,20 @@ const QuickCheckDigits = () => {
                 if (Number(e.target.value) > 999999) return
                 setDigits(e.target.value)
               }}
+            />
+            <DatePicker
+              locale={vi}
+              dateFormat="dd/MM/yyyy"
+              className="w-full"
+              placeholderText="Ngày xổ số (tùy chọn)"
+              selected={drawnAt}
+              onChange={(date) => setDrawnAt(date)}
+            />
+            <Select
+              classNamePrefix="react-select"
+              options={Object.values(LotteryCompanies).map((e) => ({ label: e.name, value: e.id }))}
+              placeholder="Chọn công ty (tùy chọn)"
+              onChange={(e) => setCompanyId(e?.value)}
             />
           </div>
           <button onClick={onSubmit}>
@@ -108,4 +138,4 @@ const QuickCheckDigits = () => {
   )
 }
 
-export default QuickCheckDigits
+export default CheckDigits

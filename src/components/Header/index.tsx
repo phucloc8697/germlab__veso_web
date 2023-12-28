@@ -4,11 +4,13 @@ import { useSidebarStore } from '@/store/useSidebarStore'
 import { Menus } from '@/utils/navigation'
 import classNames from 'classnames'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import React, { useEffect, useRef } from 'react'
 import { useShallow } from 'zustand/react/shallow'
 
 const Header = () => {
   const toggleSidebar = useSidebarStore(useShallow((state) => state.toggleSidebar))
+  const pathname = usePathname()
 
   const prevScrollPos = useRef(0)
 
@@ -53,7 +55,11 @@ const Header = () => {
             <Link
               key={e.label}
               href={e.url}
-              className="text-sm text-light hover:text-white hover:font-medium"
+              className={classNames(
+                'text-sm text-light p2',
+                'hover:text-white hover:font-medium',
+                e.url === pathname && 'text-white font-semibold border-b border-white',
+              )}
             >
               {e.label}
             </Link>
