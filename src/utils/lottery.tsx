@@ -1,4 +1,4 @@
-import { LotteryCompany, LotteryGroup } from '@/types'
+import { LotteryCompany, LotteryGroup, LotteryResult, WinResult } from '@/types'
 
 export const LotteryGroups = {
   mien_bac: new LotteryGroup('mien_bac', 'Miền Bắc'),
@@ -69,6 +69,48 @@ export function getPrizeName(id: number): string {
     6: 'Giải sáu',
     7: 'Giải bảy',
     8: 'Giải tám',
+    9: 'Giải phụ đặc biệt',
   }
   return Names[id] || ''
+}
+
+export function isSecondarySpecialPrize(expect: string, digits: string): boolean {
+  let wrong = false
+  for (let i = 0; i < 6; i++) {
+    if (expect[i] !== digits[i]) {
+      if (!wrong) {
+        wrong = true
+      } else {
+        return false
+      }
+    }
+  }
+  return true
+}
+
+export function checkLotteryResults(results: LotteryResult[], digits: string): WinResult[] {
+  let ans: WinResult[] = []
+  for (let result of results) {
+    for (let i = 0; i < 9; i++) {
+      const expects = (result as { [key: string]: any })[`prize${i}`] as string[]
+      for (let e of expects) {
+        if (digits === e || (e.length < digits.length && digits.slice(-e.length) === e)) {
+          ans.push({
+            prize: i,
+            expect: e,
+            company: result.company_id,
+          })
+        }
+      }
+    }
+
+    if (isSecondarySpecialPrize(result.prize0[0], digits)) {
+      ans.push({
+        prize: 9,
+        expect: result.prize0[0],
+        company: result.company_id,
+      })
+    }
+  }
+  return ans
 }

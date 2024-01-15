@@ -42,3 +42,9 @@ export class LotteryGroup {
     this.name = name
   }
 }
+
+export type WinResult = {
+  prize: number
+  company: string
+  expect: string
+}

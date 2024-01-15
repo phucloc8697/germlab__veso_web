@@ -6,13 +6,8 @@ import { useEffect, useState } from 'react'
 import Card from '@/components/Card'
 import Spinner from '@/components/Spinner'
 import { useLotteryResultStore } from '@/hooks/useLotteryResultStore'
-import { getCompanyFromId, getPrizeName } from '@/utils/lottery'
-
-type WinResult = {
-  prize: number
-  company: string
-  expect: string
-}
+import { checkLotteryResults, getCompanyFromId, getPrizeName } from '@/utils/lottery'
+import { WinResult } from '@/types'
 
 const QuickCheckDigits = () => {
   const latestResuts = useLotteryResultStore((state) => state.results)
@@ -31,22 +26,7 @@ const QuickCheckDigits = () => {
 
   const onSubmit = () => {
     setChecking(true)
-    let ans: WinResult[] = []
-    for (let result of latestResuts) {
-      for (let i = 0; i < 9; i++) {
-        const expects = (result as { [key: string]: any })[`prize${i}`] as string[]
-        for (let e of expects) {
-          if (digits === e || (e.length < digits.length && digits.slice(-e.length) === e)) {
-            ans.push({
-              prize: i,
-              expect: e,
-              company: result.company_id,
-            })
-          }
-        }
-      }
-    }
-    setWinResults(ans)
+    setWinResults(checkLotteryResults(latestResuts, digits))
     setTimeout(() => {
       setChecking(false)
       setFirstEnter(false)

@@ -12,14 +12,14 @@ import 'react-datepicker/dist/react-datepicker.css'
 import Card from '@/components/Card'
 import Spinner from '@/components/Spinner'
 import { useLotteryResultStore } from '@/hooks/useLotteryResultStore'
-import { LotteryCompanies, getCompanyFromId, getPrizeName } from '@/utils/lottery'
+import {
+  LotteryCompanies,
+  checkLotteryResults,
+  getCompanyFromId,
+  getPrizeName,
+} from '@/utils/lottery'
 import { useShallow } from 'zustand/react/shallow'
-
-type WinResult = {
-  prize: number
-  company: string
-  expect: string
-}
+import { WinResult } from '@/types'
 
 const CheckDigits = () => {
   const { getHistoryResults } = useLotteryResultStore(
@@ -47,22 +47,7 @@ const CheckDigits = () => {
     try {
       setChecking(true)
       const results = await getHistoryResults({ companyId, drawnAt: drawnAt })
-      let ans: WinResult[] = []
-      for (let result of results) {
-        for (let i = 0; i < 9; i++) {
-          const expects = (result as { [key: string]: any })[`prize${i}`] as string[]
-          for (let e of expects) {
-            if (digits === e || (e.length < digits.length && digits.slice(-e.length) === e)) {
-              ans.push({
-                prize: i,
-                expect: e,
-                company: result.company_id,
-              })
-            }
-          }
-        }
-      }
-      setWinResults(ans)
+      setWinResults(checkLotteryResults(results, digits))
     } finally {
       setChecking(false)
       setFirstEnter(false)
