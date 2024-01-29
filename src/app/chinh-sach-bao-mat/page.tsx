@@ -10,7 +10,7 @@ const PrivacyPage = () => {
           <div className="flex flex-col gap-4">
             <p>
               Germlab xây dựng ứng dụng Veso như một ứng dụng miễn phí. Dịch vụ này được cung cấp
-              bởi Germlab miễn phí và dùng như nó là.
+              bởi Germlab miễn phí.
             </p>
             <p>
               Trang này được sử dụng để thông báo cho khách truy cập về chính sách của tôi với việc
