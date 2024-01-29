@@ -6,33 +6,34 @@ const PrivacyPage = () => {
       <div className="flex-1 flex flex-col content">
         <Header />
         <div className="container w-screen min-h-screen flex flex-col mx-auto py-10 md:py-20 gap-12 px-4 md:px-0">
-          <h1 className="text-center text-4xl">Privacy Policy</h1>
+          <h1 className="text-center text-4xl">Chính sách bảo mật</h1>
           <div className="flex flex-col gap-4">
             <p>
-              Germlab built the Veso app as a Free app. This SERVICE is provided by Germlab at no
-              cost and is intended for use as is.
+              Germlab xây dựng ứng dụng Veso như một ứng dụng miễn phí. Dịch vụ này được cung cấp
+              bởi Germlab miễn phí và dùng như nó là.
             </p>
             <p>
-              This page is used to inform visitors regarding my policies with the collection, use,
-              and disclosure of Personal Information if anyone decided to use my Service.
+              Trang này được sử dụng để thông báo cho khách truy cập về chính sách của tôi với việc
+              thu thập, sử dụng và tiết lộ thông tin cá nhân nếu ai đó quyết định sử dụng dịch vụ
+              của tôi.
             </p>
             <p>
-              If you choose to use my Service, then you agree to the collection and use of
-              information in relation to this policy. The Personal Information that I collect is
-              used for providing and improving the Service. I will not use or share your information
-              with anyone except as described in this Privacy Policy.
+              Nếu bạn chọn sử dụng dịch vụ của tôi, bạn đồng ý với việc thu thập và sử dụng thông
+              tin liên quan đến chính sách này. Thông tin cá nhân mà tôi thu thập được được sử dụng
+              để cung cấp và cải thiện dịch vụ. Tôi sẽ không sử dụng hoặc chia sẻ thông tin của bạn
+              với bất kỳ ai ngoại trừ như đã mô tả trong Chính sách bảo mật này.
             </p>
             <p>
-              The terms used in this Privacy Policy have the same meanings as in our Terms and
-              Conditions, which are accessible at Veso unless otherwise defined in this Privacy
-              Policy.
+              Các thuật ngữ được sử dụng trong Chính sách bảo mật này có cùng ý nghĩa như trong Điều
+              khoản và Điều kiện của chúng tôi, có thể truy cập tại Veso trừ khi được xác định khác
+              trong Chính sách bảo mật này.
             </p>
           </div>
           <div className="flex flex-col gap-4">
-            <h2 className="text-lg font-semibold">Information Collection and Use</h2>
+            <h2 className="text-lg font-semibold">Thu thập và sử dụng thông tin</h2>
             <p>
-              While using Our Application, in order to provide features of Our Application, We may
-              collect, with Your prior permission:
+              Trong quá trình sử dụng Ứng dụng của chúng tôi, để cung cấp các tính năng của Ứng dụng
+              của chúng tôi, chúng tôi có thể thu thập, với sự cho phép trước của bạn:
             </p>
             <ul className="li list-disc pl-8 py-4">
               <li>
@@ -42,25 +43,29 @@ const PrivacyPage = () => {
                   rel="noopener noreferrer"
                   className="text-accent hover:underline"
                 >
-                  Pictures and other information from your Device&apos;s camera and photo library
+                  Hình ảnh và thông tin khác từ camera và thư viện ảnh của Thiết bị của bạn
                 </a>
               </li>
             </ul>
             <p>
-              We use this information to provide features of Our Service, to improve and customize
-              Our Service. The information may be uploaded to the Company&apos;s servers and/or a
-              Service Provider&apos;s server or it may be simply stored on Your device.
+              Chúng tôi sử dụng thông tin này để cung cấp các tính năng của Dịch vụ của chúng tôi,
+              để cải thiện và tùy chỉnh Dịch vụ của chúng tôi. Thông tin có thể được tải lên máy chủ
+              của Công ty và/hoặc máy chủ của Nhà cung cấp Dịch vụ hoặc nó có thể chỉ được lưu trữ
+              trên Thiết bị của bạn.
             </p>
             <p>
-              You can enable or disable access to this information at any time, through Your Device
-              settings.
+              Bạn có thể bật hoặc tắt quyền truy cập vào thông tin này bất kỳ lúc nào, thông qua cài
+              đặt Thiết bị của bạn.
             </p>
             <div>
               <p>
-                The app does use third-party services that may collect information used to identify
-                you.
+                Ứng dụng sử dụng dịch vụ của bên thứ ba có thể thu thập thông tin được sử dụng để
+                xác định bạn.
               </p>
-              <p>Link to the privacy policy of third-party service providers used by the app:</p>
+              <p>
+                Liên kết đến chính sách bảo mật của nhà cung cấp dịch vụ bên thứ ba được sử dụng bởi
+                ứng dụng:
+              </p>
               <ul className="li list-disc pl-8 py-4">
                 <li>
                   <a
@@ -69,100 +74,104 @@ const PrivacyPage = () => {
                     rel="noopener noreferrer"
                     className="text-accent hover:underline"
                   >
-                    Google Play Services
+                    Dịch vụ Google Play
                   </a>
                 </li>
               </ul>
             </div>
           </div>
           <div className="flex flex-col gap-4">
-            <h2 className="text-lg font-semibold">Log Data</h2>
+            <h2 className="text-lg font-semibold">Dữ liệu nhật ký</h2>
             <p>
-              I want to inform you that whenever you use my Service, in a case of an error in the
-              app I collect data and information (through third-party products) on your phone called
-              Log Data. This Log Data may include information such as your device Internet Protocol
-              (“IP”) address, device name, operating system version, the configuration of the app
-              when utilizing my Service, the time and date of your use of the Service, and other
-              statistics.
+              Tôi muốn thông báo cho bạn rằng mỗi khi bạn sử dụng Dịch vụ của tôi, trong trường hợp
+              xảy ra lỗi trong ứng dụng, tôi thu thập dữ liệu và thông tin (thông qua các sản phẩm
+              của bên thứ ba) trên điện thoại của bạn được gọi là Dữ liệu nhật ký. Dữ liệu nhật ký
+              này có thể bao gồm thông tin như địa chỉ Giao thức Internet (“IP”) của thiết bị, tên
+              thiết bị, phiên bản hệ điều hành, cấu hình ứng dụng khi sử dụng Dịch vụ của tôi, thời
+              gian và ngày sử dụng Dịch vụ của bạn và các thống kê khác.
             </p>
           </div>
           <div className="flex flex-col gap-4">
             <h2 className="text-lg font-semibold">Cookies</h2>
             <p>
-              Cookies are files with a small amount of data that are commonly used as anonymous
-              unique identifiers. These are sent to your browser from the websites that you visit
-              and are stored on your device’s internal memory.
+              Cookies là các tệp tin chứa một lượng nhỏ dữ liệu thông tin thông thường được sử dụng
+              như các định danh duy nhất ẩn danh. Chúng được gửi đến trình duyệt của bạn từ các
+              trang web mà bạn truy cập và được lưu trữ trong bộ nhớ trong của thiết bị của bạn.
             </p>
             <p>
-              This Service does not use these “cookies” explicitly. However, the app may use
-              third-party code and libraries that use “cookies” to collect information and improve
-              their services. You have the option to either accept or refuse these cookies and know
-              when a cookie is being sent to your device. If you choose to refuse our cookies, you
-              may not be able to use some portions of this Service.
+              Dịch vụ này không sử dụng các “cookie”. Tuy nhiên, ứng dụng có thể sử dụng mã và thư
+              viện của bên thứ ba sử dụng “cookie” để thu thập thông tin và cải thiện dịch vụ của
+              họ. Bạn có tùy chọn chấp nhận hoặc từ chối các cookie này và biết khi nào cookie được
+              gửi đến thiết bị của bạn. Nếu bạn chọn từ chối cookie của chúng tôi, bạn có thể không
+              sử dụng được một số phần của Dịch vụ này.
             </p>
           </div>
           <div className="flex flex-col gap-4">
-            <h2 className="text-lg font-semibold">Service Providers</h2>
-            <p>I may employ third-party companies and individuals due to the following reasons:</p>
+            <h2 className="text-lg font-semibold">Các nhà cung cấp dịch vụ</h2>
+            <p>Tôi có thể tuyển dụng các công ty và cá nhân bên thứ ba vì những lý do sau:</p>
             <ul>
-              <li>To facilitate our Service;</li> <li>To provide the Service on our behalf;</li>
-              <li>To perform Service-related services; or</li>
-              <li>To assist us in analyzing how our Service is used.</li>
+              <li>Để tạo điều kiện thuận lợi cho Dịch vụ của chúng tôi;</li>
+              <li>Để cung cấp Dịch vụ thay mặt chúng tôi;</li>
+              <li>Để thực hiện các dịch vụ liên quan đến Dịch vụ; hoặc</li>
+              <li>Để hỗ trợ chúng tôi phân tích cách Dịch vụ của chúng tôi được sử dụng.</li>
             </ul>
             <p>
-              I want to inform users of this Service that these third parties have access to their
-              Personal Information. The reason is to perform the tasks assigned to them on our
-              behalf. However, they are obligated not to disclose or use the information for any
-              other purpose.
+              Tôi muốn thông báo cho người dùng Dịch vụ này rằng các bên thứ ba này có quyền truy
+              cập vào Thông tin cá nhân của họ. Lý do là để thay mặt chúng tôi thực hiện nhiệm vụ
+              được giao. Tuy nhiên, họ có nghĩa vụ không tiết lộ hoặc sử dụng thông tin cho bất kỳ
+              mục đích nào khác.
             </p>
           </div>
           <div className="flex flex-col gap-4">
-            <h2 className="text-lg font-semibold">Security</h2>
+            <h2 className="text-lg font-semibold">Bảo mật</h2>
             <p>
-              I value your trust in providing us your Personal Information, thus we are striving to
-              use commercially acceptable means of protecting it. But remember that no method of
-              transmission over the internet, or method of electronic storage is 100% secure and
-              reliable, and I cannot guarantee its absolute security.
+              Tôi đánh giá cao sự tin tưởng của bạn trong việc cung cấp cho chúng tôi Thông tin cá
+              nhân của bạn, do đó chúng tôi đang cố gắng sử dụng các phương tiện được chấp nhận về
+              mặt thương mại để bảo vệ thông tin đó. Nhưng hãy nhớ rằng không có phương thức truyền
+              qua internet hoặc phương pháp lưu trữ điện tử nào an toàn và đáng tin cậy 100% và tôi
+              không thể đảm bảo tính bảo mật tuyệt đối của nó.
             </p>
           </div>
           <div className="flex flex-col gap-4">
-            <h2 className="text-lg font-semibold">Links to Other Sites</h2>
+            <h2 className="text-lg font-semibold">Liên kết đến các trang web khác</h2>
             <p>
-              This Service may contain links to other sites. If you click on a third-party link, you
-              will be directed to that site. Note that these external sites are not operated by me.
-              Therefore, I strongly advise you to review the Privacy Policy of these websites. I
-              have no control over and assume no responsibility for the content, privacy policies,
-              or practices of any third-party sites or services.
+              Dịch vụ này có thể chứa các liên kết đến các trang web khác. Nếu bạn nhấp vào liên kết
+              của bên thứ ba, bạn sẽ được dẫn đến trang web đó. Lưu ý rằng những trang web bên ngoài
+              này không phải do tôi điều hành. Vì vậy, tôi thực sự khuyên bạn nên xem lại Chính sách
+              quyền riêng tư của các trang web này. Tôi không có quyền kiểm soát và không chịu trách
+              nhiệm về nội dung, chính sách bảo mật hoặc thông lệ của bất kỳ trang web hoặc dịch vụ
+              bên thứ ba nào.
             </p>
           </div>
           <div className="flex flex-col gap-4">
-            <h2 className="text-lg font-semibold">Children’s Privacy</h2>
-
+            <h2 className="text-lg font-semibold">Quyền riêng tư của trẻ em</h2>
             <p>
-              These Services do not address anyone under the age of 13. I do not knowingly collect
-              personally identifiable information from children under 13 years of age. In the case I
-              discover that a child under 13 has provided me with personal information, I
-              immediately delete this from our servers. If you are a parent or guardian and you are
-              aware that your child has provided us with personal information, please contact me so
-              that I will be able to do the necessary actions.
+              Các Dịch vụ này không đề cập đến bất kỳ ai dưới 13 tuổi. Tôi không cố ý thu thập thông
+              tin nhận dạng cá nhân từ trẻ em dưới 13 tuổi. Trong trường hợp tôi phát hiện ra rằng
+              một đứa trẻ dưới 13 tuổi đã cung cấp thông tin cá nhân cho tôi, tôi sẽ xóa ngay thông
+              tin này khỏi máy chủ của chúng tôi. Nếu bạn là cha mẹ hoặc người giám hộ và bạn biết
+              rằng con bạn đã cung cấp thông tin cá nhân cho chúng tôi, vui lòng liên hệ với tôi để
+              tôi có thể thực hiện các hành động cần thiết.
             </p>
           </div>
           <div className="flex flex-col gap-4">
-            <h2 className="text-lg font-semibold">Changes to This Privacy Policy</h2>
+            <h2 className="text-lg font-semibold">
+              Những thay đổi đối với Chính sách quyền riêng tư này
+            </h2>
             <p>
-              I may update our Privacy Policy from time to time. Thus, you are advised to review
-              this page periodically for any changes. I will notify you of any changes by posting
-              the new Privacy Policy on this page.
+              Thỉnh thoảng tôi có thể cập nhật Chính sách quyền riêng tư của chúng tôi. Vì vậy, bạn
+              nên xem lại trang này định kỳ để biết bất kỳ thay đổi nào. Tôi sẽ thông báo cho bạn về
+              bất kỳ thay đổi nào bằng cách đăng Chính sách quyền riêng tư mới trên trang này.
             </p>
           </div>
           <div>
-            <i>This policy is effective as of 2023-12-10</i>
+            <i>Chính sách này có hiệu lực kể từ ngày 29-01-2024</i>
           </div>
           <div className="flex flex-col gap-4">
-            <h2 className="text-lg font-semibold">Contact Us</h2>
+            <h2 className="text-lg font-semibold">Liên hệ chúng tôi</h2>
             <p>
-              If you have any questions or suggestions about my Privacy Policy, do not hesitate to
-              contact me at{' '}
+              Nếu bạn có bất kỳ câu hỏi hoặc đề xuất nào về Chính sách quyền riêng tư của tôi, đừng
+              ngần ngại liên hệ với tôi theo địa chỉ{' '}
               <a className="text-accent underline" href="mailto://phucloc8697@gmail.com">
                 phucloc8697@gmail.com
               </a>
