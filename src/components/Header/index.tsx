@@ -3,6 +3,7 @@
 import { useSidebarStore } from '@/store/useSidebarStore'
 import { Menus } from '@/utils/navigation'
 import classNames from 'classnames'
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React, { useEffect, useRef } from 'react'
@@ -49,7 +50,9 @@ const Header = () => {
         <button className="md:hidden rounded p-2 text-3xl" onClick={toggleSidebar}>
           <i className="bx bx-menu" />
         </button>
-        <strong>VESO</strong>
+        <div className="bg-white p-2 rounded">
+          <Image src="/logo.png" alt="logo" width={50} height={30} />
+        </div>
         <div className="hidden md:flex items-center ml-10 gap-10">
           {Menus.map((e) => (
             <Link
